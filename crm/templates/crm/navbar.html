@@ -1,15 +1,18 @@
 <nav class="navbar bg-primary navbar navbar-expand-lg" data-bs-theme="dark">
     <!-- Navbar content -->
     <div class="container-fluid">
+     
       <a class="navbar-brand" href="{% url 'home'%}">WebPro</a>
+      
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      {% if user.is_authenticated %}
+      
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       
         <div class="navbar-nav">
-
+         
+          {% if user.is_authenticated %}
           <a class="nav-link active" aria-current="page" href="{% url 'home'%}">home</a>
           
           <a class="nav-link" href="{% url 'logout'%}">logout &nbsp;<i class="fa fa-sign-out" aria-hidden="true"></i></a>
@@ -19,17 +22,18 @@
           <a class="nav-link" href="{% url 'education'%}">education</a>
 
           {% else %}
+
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup"></div>
           
-          <a class="nav-link" href="{% url 'register'%}">Register &nbsp;<i class="fa fa-user-plus" aria-hidden="true"></i></a>
+          <a class="nav-link" href="{% url 'register'%}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Register<i class="fa fa-user-plus" aria-hidden="true"></i></a>
 
-          <a class="nav-link" href="{% url 'login'%}">Login &nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></a>
+          <a class="nav-link" href="{% url 'login'%}">&nbsp;&nbsp;&nbsp;Login<i class="fa fa-sign-in" aria-hidden="true"></i></a>
           
-          <a class="nav-link" href="{% url 'home'%}">home</a>
+          <a class="nav-link" href="{% url 'home'%}">&nbsp;&nbsp;&nbsp;home</a>
 
-          <a class="nav-link" href= "{% url   'education' %} ">Education</a>
-
+          <a class="nav-link" href= "{% url   'education' %} ">&nbsp;Education</a>
           {% endif %}
-          
+          <div/>
         </div>
       </div>
     </div>
