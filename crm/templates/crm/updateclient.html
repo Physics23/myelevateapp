@@ -1,0 +1,21 @@
+{% extends 'crm/base.html'%}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<div class=" text-center home4">
+
+    <h2> Please update your information</h2>
+      <br>
+      <form action=""  method = 'POST'>
+
+        {% csrf_token %}
+
+        {{form|crispy}}
+          <br>
+        <button>submit</button>
+
+      </form>
+{% endblock %}

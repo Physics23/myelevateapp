@@ -1,0 +1,84 @@
+
+{% extends 'crm/base.html'%}
+
+{% block content %}
+<div class="text-center">
+
+ <h1>Welcome to my dashboard, {{user}}</h1>
+
+ <a  class="btn btn-outline-success" href="{% url 'createclient'%}"> New client</a>
+ 
+
+    
+   <br>
+   <hr>  
+
+ <table  class="table table-dark  table-hover">
+
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>Firstname</th>
+            <th>Email</th>
+            <th>Adress1</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Profession</th>
+            <th>date_created</th>
+            <th>ID</th>
+            <th>Viewme</th>
+            
+            </tr>
+              <br>
+            <tbody>
+                {% for i in myclient %}
+
+                <tr>
+                <th> {{i.name}}</th>
+                <th> {{i.firstname}}</th>
+                <th> {{i.email}}</th>
+                <th> {{i.adress1}}</th>
+                <th> {{i.city}}</th>
+                <th> {{i.country}}</th>
+                <th> {{i.profession}}</th>
+                <th> {{i.date_created}}</th>
+                <th> {{i.id}}</th>
+                 <th><a href="{% url 'client_detail'  i.id %}">Viewme</a></th>
+                 </tr>
+             {% endfor %}
+
+            </tbody>
+
+
+
+
+
+        </tr>
+
+
+
+
+
+    </thead>
+
+
+
+
+
+
+
+ </table>
+
+
+
+
+
+
+</div>
+ 
+ 
+   
+
+    
+
+{% endblock %}

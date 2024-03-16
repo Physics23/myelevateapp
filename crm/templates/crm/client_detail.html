@@ -1,0 +1,28 @@
+
+{% extends 'crm/base.html'%}
+
+{% block content %}
+
+<div class="card">
+
+   <h2> information detail</h2>
+    <div class="card-body">
+      <p><strong>Name: {{all_clients.name}}</strong></p>
+      <p><strong>Firstname: {{all_clients.firstname}}</strong></p>
+      <p><strong>Email: {{all_clients.email}}</strong></p>
+      <p><strong>Adress1: {{all_clients.adress1}}</strong></p>
+      <p><strong>City: {{all_clients.city}}</strong></p>
+      <p><strong>Country: {{all_clients.country}}</strong></p>
+      <p><strong>Profession: {{all_clients.profession}}</strong></p>
+      <p><strong>Date_created: {{all_clients.date_created}}</strong></p>
+    </div>
+  </div>
+  <br>
+  <a  class="btn btn-primary" href="{% url 'updateclient' all_clients.id %}">update</a>
+  &nbsp;
+  <a  class="btn btn-success" href="{% url 'dashboard' %}">dashborad</a>
+  &nbsp;
+  <a  class="btn btn-success" href="{% url 'client_delete' all_clients.id %}">delete</a>
+  &nbsp;
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'crm/base.html'%}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+ <body>   
+<div class="container bg-success shadow-md p-5 text-center">
+
+    <h2> Please register </h2>
+      <br>
+      <form action=""  method = 'POST'>
+
+        {% csrf_token %}
+
+        {{form|crispy}}
+         <br>
+        <button>submit</button>
+
+</div>
+</body>
+   
+
+
+{% endblock %}
