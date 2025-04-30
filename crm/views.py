@@ -1,11 +1,20 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ObjectDoesNotExist
+
 from django.contrib.auth.forms import UserCreationForm
-from .forms  import CreateuserForm, LoginForm, MyclientForm, UpdateClientForm
+from .forms  import CreateuserForm, LoginForm, MyclientForm, UpdateClientForm, ContactForm
 from .models import Myclients 
+from receiveship.models import ReceiverShipCase
 from django.contrib import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from .forms import ProfileForm
+from django.contrib.auth.models import User
+from .models import Profile
 
 
 def home(request):
@@ -66,6 +75,7 @@ def login(request):
 def dashboard(request):
     
     myclient = Myclients.objects.all()
+    case = ReceiverShipCase.objects.all()
     context = {'myclient': myclient}
     return render(request, 'crm/dashboard.html', context = context)
 
@@ -94,7 +104,6 @@ def createclient(request):
 def updateClient(request, pk):
     
     myclient = Myclients.objects.get(id =pk)
-    
     form = UpdateClientForm(instance = myclient)
     if request.method == 'POST':
         form = UpdateClientForm(request.POST, instance=myclient)
@@ -150,6 +159,54 @@ def client_delete(request, pk):
     messages.success(request, 'Client deleted ')
     return redirect('dashboard')
     
+    
+    
+    
+ ########################################################################################   
+def edit_profile(request):
+    profile = request.user.profile
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')  # Redirect to a profile view
+    else:
+        form = ProfileForm(instance=profile)
+    return render(request, 'crm/edit_profile.html', {'form': form})
+
+
+
+
+
+################################################################################################3
+
+@login_required
+def profile(request):
+    
+    user_profile = request.user.profile
+
+    return render(request, 'crm/profile.html', {'profile': user_profile})
+
+
+
+
+def contact(request):
+    
+    form = ContactForm()
+    
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'message sent ')
+            return redirect('home')
+    return render(request, 'crm/contact.html', {'form':form})
+        
+        
+
+
+
+
     
         
     

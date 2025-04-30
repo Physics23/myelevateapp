@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'crm',
     'crispy_bootstrap4',
     'crispy_forms',
+    'receiveship',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"

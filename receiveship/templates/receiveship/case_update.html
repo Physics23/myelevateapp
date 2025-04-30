@@ -1,0 +1,23 @@
+
+{% include 'crm\base.html'%}
+
+
+   {% block content %}
+
+  <div class="container bg-success shadow-md p-5 text-center">
+
+
+    <h2> Please Fill out the form</h2>
+      <br>
+      <form action =""  method = 'POST'>
+
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+        <button>submit</button>
+
+      </form>
+
+</div>
+{% endblock %}

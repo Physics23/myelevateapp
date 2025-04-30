@@ -4,6 +4,8 @@ from django import forms
 from .models import Myclients
 from django.forms import ModelForm
 from django.forms.widgets import  PasswordInput, TextInput
+from django import forms
+from .models import Profile, Contact
 
 
 # register or create a user
@@ -43,6 +45,19 @@ class UpdateClientForm(forms.ModelForm):
         
         model = Myclients
         
-        
-        fields = '__all__'
+        fields =  '__all__'
     
+    
+   
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['email', 'adress1', 'city', 'country', 'profession']
+
+
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ['name', 'email', 'content']

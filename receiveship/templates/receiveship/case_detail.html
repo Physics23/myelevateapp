@@ -1,0 +1,25 @@
+{% include 'crm\base.html'%}
+
+{% block content %}
+
+
+<div class="card">
+
+   <h2> case detail</h2>
+    <div class="card-body">
+      <p><strong>Title: {{case.title}}</strong></p>
+      <p><strong>court: {{case.court}}</strong></p>
+      <p><strong>receiver: {{case.receiver}}</strong></p>
+      <p><strong>Status: {{case.status}}</strong></p>
+    </div>
+  </div>
+  <br>
+  <a  class="btn btn-primary" href="{% url 'case_update' case.id %}">update</a>
+  &nbsp;
+  <a  class="btn btn-success" href="{% url 'dashboard' %}">dashborad</a>
+  &nbsp;
+  <a  class="btn btn-success" href="{% url 'case_delete' case.id %}">delete</a>
+  &nbsp;
+
+{% endblock %}
+

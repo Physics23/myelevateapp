@@ -1,0 +1,13 @@
+{% extends 'crm/base.html'%}
+
+{% block content %}
+
+<h4>Profile of {{ profile.user.username }}</h4>
+<h4>Email: {{ profile.email }}</h4>
+<h4>City: {{ profile.city }}</h4>
+<h4>Address: {{ profile.adress1 }}</h4>
+<h4>Profession: {{ profile.profession }}</h4>
+
+<a href="{% url 'edit_profile' %}">Edit Profile</a>
+
+{% endblock %}

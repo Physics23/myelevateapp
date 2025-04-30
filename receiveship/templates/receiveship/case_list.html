@@ -1,0 +1,26 @@
+
+{% include 'crm\base.html'%}
+
+
+{% block content %}
+
+
+<div class="container bg-success shadow-md p-5 text-center">
+    
+    <h1> Receivership case </h1>
+    <ul>
+
+     {% for c in caselist %}
+
+     <li>
+
+        <h4><a href="{% url 'case_detail'  c.id %}"> case</a></h4>
+
+     </li>
+        
+     
+       {% endfor %}
+
+    </ul>
+
+{% endblock %}

@@ -1,6 +1,7 @@
 
 from django.urls import path
-from .  import views
+from .import views
+
 
 urlpatterns = [
     path('', views.home , name = 'home'),
@@ -13,4 +14,7 @@ urlpatterns = [
     path('updateclient/<int:pk>', views.updateClient, name = 'updateclient'),
     path('client_detail/<int:pk>/', views.client_detail, name = 'client_detail'),
     path('client_delete/<int:pk>/', views.client_delete, name = 'client_delete'),
+    path('edit-profile/', views.edit_profile, name='edit_profile'),
+    path('profile/', views.profile, name='profile'),
+    path('contact/', views.contact, name ='contact'),
 ]

@@ -15,23 +15,25 @@
           {% if user.is_authenticated %}
           <a class="nav-link active" aria-current="page" href="{% url 'home'%}">home</a>
           
-          <a class="nav-link" href="{% url 'logout'%}">logout &nbsp;<i class="fa fa-sign-out" aria-hidden="true"></i></a>
+          <a class="nav-link" href="{% url 'dashboard'%}">dashbord &nbsp;<i class="fa fa-sign-out" aria-hidden="true"></i></a>
         
-          <a class="nav-link" href="{% url 'dashboard'%}">dashbord</a>
-
           <a class="nav-link" href="{% url 'education'%}">education</a>
+
+          <a class="nav-link" href="{% url 'profile'%}">profile</a>
+          <a class="nav-link" href="{% url 'logout'%}">logout</a>
 
           {% else %}
 
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup"></div>
           
-          <a class="nav-link" href="{% url 'register'%}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Register<i class="fa fa-user-plus" aria-hidden="true"></i></a>
+          <a class="nav-link" href="{% url 'home'%}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;home<i class="fa fa-user-plus" aria-hidden="true"></i></a>
+          <a class="nav-link" href="{% url 'contact'%}">&nbsp;&nbsp;&nbsp;contact</a>
 
-          <a class="nav-link" href="{% url 'login'%}">&nbsp;&nbsp;&nbsp;Login<i class="fa fa-sign-in" aria-hidden="true"></i></a>
+          <a class="nav-link" href="{% url 'education'%}">&nbsp;&nbsp;&nbsp;education<i class="fa fa-sign-in" aria-hidden="true"></i></a>
           
-          <a class="nav-link" href="{% url 'home'%}">&nbsp;&nbsp;&nbsp;home</a>
+          <a class="nav-link" href="{% url 'register'%}">&nbsp;&nbsp;&nbsp;register</a>
 
-          <a class="nav-link" href= "{% url   'education' %} ">&nbsp;Education</a>
+          <a class="nav-link" href= "{% url   'login' %} ">&nbsp;login</a>
           {% endif %}
           <div/>
         </div>
